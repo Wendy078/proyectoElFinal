@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control de Almacén - UAPP La Paz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <style>
+        /* Los tooltips ahora se muestran al costado - estilos en style.css */
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo-container" id="logo">
+            <img src="img/logo.jpg" alt="Logo UAPP La Paz" class="logo">
+            <span class="logo-badge">Sistema</span>
+        </div>
+        
+        <div class="header-content">
+            <h1 class="titulo">SISTEMA DE CONTROL DE ALMACÉN</h1>
+            <h3>Unidad de Administración Policial Zona Sur<h3>
+        </div>
+        
+        <button class="cta-header" onclick="mostrarContacto()">
+            <i class="fas fa-info-circle me-2"></i>Informacion
+        </button>
+    </header>
+    
+
+    <!-- MENÚ PRINCIPAL -->
+    <nav class="menu">
+        <div class="menu-container">
+            <ul class="menu-list">
+                <!-- INICIO -->
+                <li class="menu-item" data-content="inicio">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-home me-2"></i>Inicio
+                    </a>
+                    <div class="tooltip-arriba">
+                        <strong>PÁGINA DE INICIO</strong>
+                         vista general completa del sistema
+                    </div>
+                </li>
+
+                <!-- MODELO AMBIENTAL -->
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-leaf me-2"></i>Modelo Ambiental
+                        <i class="fas fa-chevron-down submenu-arrow ms-2"></i>
+                    </a>
+                    <div class="tooltip-arriba">
+                        <strong>MODELO AMBIENTAL</strong>
+                         muestra cómo el sistema interactúa con su entorno externo
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#" data-content="ambiental-proposito">Declaración de Propósito</a></li>
+                        <li><a href="#" data-content="ambiental-contexto">Diagrama de Contexto</a></li>
+                        <li><a href="#" data-content="ambiental-acontecimientos">Lista de Acontecimientos</a></li>
+                    </ul>
+                </li>
+
+                <!-- MODELO COMPORTAMIENTO -->
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-brain me-2"></i>Modelo Comportamiento
+                        <i class="fas fa-chevron-down submenu-arrow ms-2"></i>
+                    </a>
+                    <div class="tooltip-arriba">
+                        <strong>MODELO DE COMPORTAMIENTO</strong>
+                         cómo fluye la información dentro del sistema
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#" data-content="comportamiento-dfd1">DFD Nivel 1</a></li>
+                        <li><a href="#" data-content="comportamiento-dfd2">DFD Nivel 2</a></li>
+                    </ul>
+                </li>
+
+                <!-- ANÁLISIS OO -->
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-object-group me-2"></i>Análisis OO
+                        <i class="fas fa-chevron-down submenu-arrow ms-2"></i>
+                    </a>
+                    <div class="tooltip-arriba">
+                        <strong>ANÁLISIS ORIENTADO A OBJETOS</strong>
+                        muestra el sistema desde la perspectiva de objetos y sus interacciones
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#" data-content="oo-casos-negocio">Casos de Uso - Negocio</a></li>
+                        <li><a href="#" data-content="oo-casos-sistema">Casos de Uso - Sistema</a></li>
+                        <li><a href="#" data-content="oo-casos-texto">Casos de Uso - Texto</a></li>
+                        <li><a href="#" data-content="oo-diagrama-clases">Diagrama de Clases</a></li>
+                    </ul>
+                </li>
+
+                <!-- MARCO TEÓRICO -->
+                <li class="menu-item has-submenu">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-book me-2"></i>Marco Teórico
+                        <i class="fas fa-chevron-down submenu-arrow ms-2"></i>
+                    </a>
+                    <div class="tooltip-arriba">
+                        <strong>MARCO TEÓRICO</strong>
+                         contiene toda la documentación escrita del proyecto.
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#" data-content="teorico-introduccion">Introducción</a></li>
+                        <li><a href="#" data-content="teorico-antecedentes">Antecedentes</a></li>
+                        <li><a href="#" data-content="teorico-problema">Formulación del Problema</a></li>
+                        <li><a href="#" data-content="teorico-arbol">Arbol de problemas</a></li>
+                        <li><a href="#" data-content="teorico-justificacion">Justificación y Alcances</a></li>
+                        <li><a href="#" data-content="teorico-proposito">Proposito de Estudio</a></li>
+                        <li><a href="#" data-content="teorico-planificacion">Planificación de Actividades</a></li>
+                    </ul>
+                </li>
+
+                <!-- VIDEO -->
+                <li class="menu-item" data-content="video">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-video me-2"></i>Video
+                    </a>
+                    <div class="tooltip-arriba">
+                        <strong>VIDEO DEMOSTRATIVO</strong>
+                        video muestra el sistema funcionando
+                    </div>
+                </li>
+
+                <!-- CONTACTOS -->
+                <li class="menu-item" data-content="contactos">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-address-book me-2"></i>Contactos
+                    </a>
+                    <div class="tooltip-arriba">
+                        <strong>CONTACTOS</strong>
+                         quieres más información sobre el proyecto
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- BOTÓN MENÚ MÓVIL -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+ <!-- CONTENIDO PRINCIPAL -->
+    <main id="contenido-principal">
+        
+        <!-- ============ PÁGINA DE INICIO ============ -->
+        <section id="inicio" class="contenido-pagina active">
+            <div class="container">
+                <div class="hero-section">
+                    <h1 class="hero-title">Sistema de Control de Almacén Inteligente</h1>
+                    <p class="hero-subtitle">
+                        Solución integral para la gestión eficiente de materiales en la Unidad de Administración Policial de La Paz
+                    </p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h3><i class="fas fa-bullseye me-2"></i>Propósito del Sistema</h3>
+                                <p>Automatizar y optimizar el control de inventario de materiales de escritorio, limpieza y equipamiento policial.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h3><i class="fas fa-chart-line me-2"></i>Beneficios</h3>
+                                <p>Reducción de errores en un 73%, ahorro del 45% en costos y reportes automáticos en tiempo real.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrusel corregido -->
+<div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="4000">
+  <!-- Indicadores -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" 
+            class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" 
+            aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" 
+            aria-label="Slide 3"></button>
+  </div>
+
+  <!-- Slides -->
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="img/imagen2.jpeg" class="d-block w-100" alt="Patrulla policial en operativo">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Operativos coordinados</h5>
+        <p>Transparencia y eficiencia en cada movimiento de inventario.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/imagen3.jpg" class="d-block w-100" alt="Uniforme verde coca">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Identidad institucional</h5>
+        <p>Estándares y control con enfoque profesional.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/imagen4.jpg" class="d-block w-100" alt="Distribución de materiales">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Gestión efectiva</h5>
+        <p>Trazabilidad completa de entradas y salidas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
+                <!-- MENÚ RÁPIDO DE MODELOS -->
+                <div class="modelos-rapidos mt-5">
+                    <h3 class="text-center mb-4">Acceso Rápido a Modelos</h3>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="modelo-card" onclick="mostrarPagina('ambiental-proposito')">
+                                <i class="fas fa-leaf modelo-icon"></i>
+                                <h5>Modelo Ambiental</h5>
+                                <small>3 documentos</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modelo-card" onclick="mostrarPagina('comportamiento-dfd1')">
+                                <i class="fas fa-sitemap modelo-icon"></i>
+                                <h5>DFD</h5>
+                                <small>2 niveles</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modelo-card" onclick="mostrarPagina('oo-casos-negocio')">
+                                <i class="fas fa-object-group modelo-icon"></i>
+                                <h5>Casos de Uso</h5>
+                                <small>3 tipos</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="modelo-card" onclick="mostrarPagina('estructurado-nivel0')">
+                                <i class="fas fa-project-diagram modelo-icon"></i>
+                                <h5>Diagramas</h5>
+                                <small>3 niveles</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ MODELO AMBIENTAL ============ -->
+        
+        <!-- Declaración de Propósito -->
+        <section id="ambiental-proposito" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-leaf me-2"></i>Modelo Ambiental - Declaración de Propósito
+                    </h2>
+                    <p class="modelo-subtitle">Documento que establece los objetivos del sistema desde la perspectiva ambiental</p>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <!-- PLANTILLA PARA IMAGEN -->
+            
+                                <div class="">
+                                   Se pide desarrollar un sistema de control de almacén policial donde los usuarios como policías y/o relacionados tengan el registro del uso del inventario policial, con responsables a cargo donde se reparta y controle este, con informes sobre el monitoreo sobre los objetos de uso policial.
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagrama de Contexto -->
+        <section id="ambiental-contexto" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-leaf me-2"></i>Modelo Ambiental - Diagrama de Contexto
+                    </h2>
+                    <p class="modelo-subtitle">Representación de las interacciones del sistema con su entorno</p>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="imagen-container">
+                                <img src="img/M_Ambiental.png" 
+                                     alt="Diagrama de Contexto - Modelo Ambiental" 
+                                     class="img-fluid modelo-imagen">
+                                <div class="imagen-caption">
+                                    Figura 2: Diagrama de Contexto del Sistema Ambiental
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="descripcion-box">
+                                <h5>Descripción:</h5>
+                                <p>Diagrama que muestra las entidades externas y los flujos de datos entre el sistema y su entorno ambiental.</p>
+                                
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ <!-- Lista de Acontecimientos -->
+<section id="ambiental-acontecimientos" class="contenido-pagina">
+    <div class="container">
+        <div class="modelo-header">
+            <h2 class="modelo-title">
+                <i class="fas fa-leaf me-2"></i> Lista de Acontecimientos
+            </h2>
+        </div>
+        
+        <div class="modelo-content">
+            <div class="row">
+                <!-- Columna izquierda con listado -->
+                <div class="col-md-8">
+                    <ul class="lista-acontecimientos">
+                        <li>Registrar datos para solicitar materiales al usuario</li>
+                        <li>Registrar datos para consultar materiales al usuario y Jefe Adm</li>
+                        <li>Registrar datos para comprar materiales del Proveedor</li>
+                        <li>Registrar datos para repartir materiales por Jefe de Adm</li>
+                        <li>Registrar datos del inventario por Jefe de Adm</li>
+                        <li>Registrar datos para la baja de materiales del Jefe de Adm</li>
+                        <li>Emitir reportes</li>
+                    </ul>
+                    
+                    <div class="imagen-caption">
+                        Lista de Eventos del Sistema Ambiental
+                    </div>
+                </div>
+
+                <!-- Columna derecha con descripción -->
+                <div class="col-md-4">
+                    <div class="descripcion-box">
+                        <h5>Descripción:</h5>
+                        <p>Listado de eventos externos que desencadenan procesos dentro del sistema de gestión ambiental.</p>
+                    
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- ============ MODELO COMPORTAMIENTO ============ -->
+        
+        <!-- DFD Nivel 1 -->
+        <section id="comportamiento-dfd1" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-sitemap me-2"></i>Diagrama Nivel 0
+                    </h2>
+                    <p class="modelo-subtitle">Diagrama de Flujo de Datos nivel principal del sistema</p>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="imagen-container">
+                                <img src="img/M_Comportamiento.png" 
+                                     alt="DFD Nivel 1 - Diagrama Principal" 
+                                     class="img-fluid modelo-imagen">
+                                <div class="imagen-caption">
+                                    Figura 4: Diagrama de Flujo de Datos - Nivel 1
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="descripcion-box">
+                                <h5>Nivel 1 - Principal</h5>
+                                <p>Diagrama que muestra los procesos principales del sistema de control de almacén.</p>
+                                
+                                <div class="info-box">
+                                    <small><i class="fas fa-info-circle me-1"></i> Tamaño recomendado: 1000x600px</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DFD Nivel 2 -->
+        <section id="comportamiento-dfd2" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-sitemap me-2"></i>DFD Nivel 2 - Procesos Detallados
+                    </h2>
+                    <p class="modelo-subtitle">Diagrama de Flujo de Datos con procesos expandidos</p>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="imagen-container">
+                                <img src="img/nivel2.jpg" 
+                                     alt="DFD Nivel 2 - Procesos Detallados" 
+                                     class="img-fluid modelo-imagen">
+                                <div class="imagen-caption">
+                                    Figura 5: Diagrama de Flujo de Datos - Nivel 2
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="descripcion-box">
+                                <h5>Nivel 2 - Detallado</h5>
+                                <p>Expansión de los procesos principales mostrando subprocesos y flujos internos.</p>
+                                
+                                <div class="info-box">
+                                    <small><i class="fas fa-info-circle me-1"></i> Tamaño recomendado: 1200x800px</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ANÁLISIS ORIENTADO A OBJETOS ============ -->
+        
+        <!-- Casos de Uso - Negocio -->
+        <section id="oo-casos-negocio" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-briefcase me-2"></i>Diagrama de Casos de Uso de Negocio
+                    </h2>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="imagen-container">
+                                <img src="img/Negocio.jpg" 
+                                     alt="Casos de Uso - Nivel Negocio" 
+                                     class="img-fluid modelo-imagen">
+                                <div class="imagen-caption">
+                                    Diagrama de Casos de Uso de Negocio
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="descripcion-box">
+                                <h5>Descripción:</h5>
+                                <p>Casos de uso que representan los procesos de negocio del sistema de almacén.</p>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Casos de Uso - Sistema -->
+        <section id="oo-casos-sistema" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-desktop me-2"></i>Casos de Uso - Nivel Sistema
+                    </h2>
+                    <p class="modelo-subtitle">Diagrama de casos de uso desde la perspectiva del sistema</p>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="imagen-container">
+                                <img src="img/csistema.png" 
+                                     alt="Casos de Uso - Nivel Sistema" 
+                                     class="img-fluid modelo-imagen">
+                                <div class="imagen-caption">
+                                    Diagrama de Casos de Uso - Nivel Sistema
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="descripcion-box">
+                                <h5>Sistema</h5>
+                                <p>Casos de uso que representan las funcionalidades específicas del sistema informático.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Casos de Uso - Texto -->
+        <section id="oo-casos-texto" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-file-alt me-2"></i> Diagrama de casos de uso de tipo texto y extendido
+                    </h2>
+                    <p class="modelo-subtitle">Descripción detallada de cada caso de uso en formato texto</p>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="imagen-container">
+                                <img src="img/texto1.png" 
+                                     alt="Casos de Uso - Descripción Textual" 
+                                     class="img-fluid modelo-imagen">
+                                      <img src="img/texto2.png" 
+                                     alt="Casos de Uso - Descripción Textual" 
+                                     class="img-fluid modelo-imagen">
+                                      <img src="img/texto3.png" 
+                                     alt="Casos de Uso - Descripción Textual" 
+                                     class="img-fluid modelo-imagen">
+                                      <img src="img/texto4.png" 
+                                     alt="Casos de Uso - Descripción Textual" 
+                                     class="img-fluid modelo-imagen">
+                                <div class="imagen-caption">
+                                    Descripción Textual de Casos de Uso
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="descripcion-box">
+                                <h5>Formato Textual</h5>
+                                <p>Descripción detallada de actores, precondiciones, flujo principal y alternativo de cada caso de uso.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagrama de Clases -->
+        <section id="oo-diagrama-clases" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-object-group me-2"></i>Diagrama de Clases
+                    </h2>
+                    <p class="modelo-subtitle">Estructura de clases del sistema orientado a objetos</p>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="imagen-container">
+                                <img src="img/DClases.png" 
+                                     alt="Diagrama de Clases" 
+                                     class="img-fluid modelo-imagen">
+                                <div class="imagen-caption">
+                                     Diagrama de Clases del Sistema
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="descripcion-box">
+                                <h5>Clases del Sistema</h5>
+                                <p>Representación de las clases, atributos, métodos y relaciones del sistema.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+        <!-- ============ MARCO TEÓRICO ============ -->
+        
+        <!-- Introducción -->
+        <section id="teorico-introduccion" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-book me-2"></i>Introducción
+                    </h2>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="descripcion-box">
+                                <p>En las instituciones públicas, el control eficiente de los recursos materiales es fundamental para garantizar la transparencia y la operatividad de las diferentes áreas administrativas. En las unidades policiales de La Paz, Bolivia, la gestión manual de inventarios particularmente de materiales de escritorio y limpieza ha generado inconvenientes en el registro, distribución y control presupuestario.
+                                Con el fin de optimizar estos procesos, se propone el desarrollo e implementación de un sistema informático de control de almacén que permita administrar los materiales de escritorio y limpieza de manera automatizada. Este sistema servirá al jefe de administración para gestionar el abastecimiento de siete unidades policiales dependientes de la unidad central, mejorando la eficiencia, la transparencia y la rendición de cuentas..</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Antecedentes -->
+        <section id="teorico-antecedentes" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-book me-2"></i>Antecedentes
+                    </h2>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="descripcion-box">
+                                <p>Actualmente, la gestión de materiales en la Unidad de Administración Policial de La Paz se realiza mediante registros manuales y planillas dispersas. Esto dificulta el control preciso de las existencias, ocasiona pérdidas o sobreacumulación de insumos y retrasa los procesos de reposición.
+                                En el contexto nacional, otras instituciones del sector público han migrado a sistemas digitales para la administración de inventarios, logrando mejores resultados en transparencia y eficiencia. Sin embargo, las unidades policiales aún carecen de una herramienta informática adaptada a sus necesidades específicas, especialmente para manejar materiales de escritorio y limpieza, cuya demanda es constante y diversa.
+                            </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulación del Problema -->
+        <section id="teorico-problema" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-book me-2"></i> Formulación del Problema
+                    </h2>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="descripcion-box">
+                                <p>La Unidad de Administración Policial de La Paz enfrenta dificultades para controlar y distribuir de manera eficiente los materiales de escritorio y limpieza destinados a siete unidades policiales dependientes.
+                                                        Entre los principales problemas se destacan:
+                                                        Falta de un registro actualizado de entradas y salidas de materiales.
+
+
+                                                        Distribución ineficiente de insumos a las unidades dependientes.
+
+
+                                                        Dificultad para planificar el presupuesto y realizar auditorías.
+
+
+                                                        Duplicidad de registros y errores humanos en los inventarios.
+
+
+                                                        Por lo tanto, se requiere un sistema informático integral que permita un control en tiempo real de los materiales de escritorio y limpieza, garantizando una administración transparente y ordenada.
+                                                        </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- arbol del problema -->
+        <section id="teorico-arbol" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-book me-2"></i>Arbol de problemas
+                    </h2>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="descripcion-box">
+                                <p>Problema central:
+                                    Deficiente control del material de escritorio y limpieza en la Unidad de Administración Policial de La Paz.
+                                    Causas:
+                                    Registros manuales y poco confiables.
+
+
+                                    Falta de un sistema unificado de control de almacén.
+
+
+                                    Procesos administrativos lentos y sin trazabilidad.
+
+
+                                    Ausencia de reportes automáticos y control presupuestario.
+
+
+                                    Efectos:
+                                    Pérdida de materiales.
+
+
+                                    Retrasos en la entrega de insumos.
+
+
+                                    Incremento de costos y desorden presupuestario.
+
+
+                                    Ineficiencia administrativa general.
+
+
+                                                                    </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Justificación -->
+        <section id="teorico-justificacion" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-book me-2"></i>Justificación y Alcances
+                    </h2>
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="descripcion-box">
+                                <p> <strong>Justificación:</strong>
+                                    El sistema permitirá automatizar el registro y control de materiales de escritorio y limpieza, reducir pérdidas, evitar duplicidad de pedidos y facilitar la elaboración de reportes. Además, contribuirá a una administración más eficiente, moderna y transparente dentro de la estructura policial, acorde con los procesos de transformación digital del Estado.
+                                    <br><br>
+                                    <strong>Alcances:</strong>
+                                    Control total del inventario de materiales de escritorio y limpieza.
+
+
+                                    Gestión de entradas, salidas, existencias y distribución a las siete unidades.
+
+
+                                    Módulo de control presupuestario por tipo de material y unidad policial.
+
+
+                                    Reportes automáticos y trazabilidad de movimientos.
+
+
+                                    Accesos diferenciados (administrador, jefe de almacén, usuario).
+
+
+                                    Implementación inicial en la Unidad Central, con posibilidad de expansión a otras regiones policiales.
+                                    </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Planificación -->
+        <section id="teorico-proposito" class="contenido-pagina">
+            <div class="container">
+                <div class="modelo-header">
+                    <h2 class="modelo-title">
+                        <i class="fas fa-book me-2"></i>Proposito de Estudio
+                    </h2>
+            
+                </div>
+                
+                <div class="modelo-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="descripcion-box">
+                                <p>Objetivo General
+                                        Desarrollar un sistema de control de almacén que permita gestionar de manera eficiente los materiales de escritorio y limpieza de la Unidad de Administración Policial de La Paz, optimizando la distribución de recursos hacia las siete unidades dependientes.
+
+
+
+
+                                        Objetivos Específicos
+                                        Analizar los procesos actuales de gestión de materiales de escritorio y limpieza.
+
+
+                                        Identificar los requerimientos funcionales y técnicos del nuevo sistema.
+
+
+                                        Diseñar la base de datos y la interfaz del sistema que integre ambos tipos de materiales.
+
+
+                                        Desarrollar el sistema informático y validar su funcionamiento.
+
+
+                                        Capacitar al personal en el uso del sistema.
+
+
+                                        Evaluar los resultados en términos de eficiencia y control presupuestario.
+                                        </p>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                <!-- proposito de estudio -->
+<section id="teorico-planificacion" class="contenido-pagina">
+    <div class="container">
+        <div class="modelo-header">
+            <h2 class="modelo-title">
+                <i class="fas fa-book me-2"></i> Planificación de Actividades
+            </h2>
+        </div>
+
+        <div class="modelo-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="descripcion-box">
+                        <img src="img/pla1.jpg" alt="Descripción de la imagen">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- ============ VIDEO ============ -->
+<!-- Video Demostrativo -->
+<section id="video" class="contenido-pagina">
+    <div class="container">
+        <div class="modelo-header">
+            <h2 class="modelo-title">
+                <i class="fas fa-video me-2"></i> Video Demostrativo
+            </h2>
+        </div>
+        
+        <div class="modelo-content">
+            <div class="row justify-content-center">
+                
+                <!-- Primer video -->
+                <div class="col-12 mb-5">
+                    <h3 class="video-title">Diagrama de Casos de Uso de Negocio</h3>
+                    <div class="video-container">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/MdvWbBukhZk"
+                                    title="Tutorial Diagrama de Casos de Uso - Sistema Control de Almacén Policial"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-descripcion mt-3">
+                            <h5>Descripción:</h5>
+                            <p>Tutorial Diagrama de Casos de Uso de Negocio en Enterprise Architect - Sistema de Control de Almacén Policial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segundo video -->
+                <div class="col-12 mb-5">
+                    <h3 class="video-title">Diagrama de Clases</h3>
+                    <div class="video-container">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/ipZjpr6ItzU"
+                                    title="Segundo Video Demostrativo"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-descripcion mt-3">
+                            <h5>Descripción:</h5>
+                            <p>Tutorial Diagrama de Clases en Drawio - Sistema de Control de Almacén Policial.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contactos -->
+<section id="contactos" class="contenido-pagina">
+    <div class="container">
+        <div class="modelo-header">
+            <h2 class="modelo-title">
+                <i class="fas fa-address-book me-2"></i> Contactos
+            </h2>
+            <p class="modelo-subtitle">
+                Información de contacto y soporte del Sistema de Control de Almacén Policial
+            </p>
+        </div>
+        
+        <div class="modelo-content">
+            <div class="row">
+                <!-- Institución -->
+                <div class="col-md-6">
+                    <div class="contacto-card">
+                        <h4><i class="fas fa-university me-2"></i> Institución</h4>
+                        <p><strong>Unidad de Administración Policial de La Paz</strong></p>
+                        <p>Departamento de Sistemas y Tecnología</p>
+                        <p>Av. Principal #123, La Paz, Bolivia</p>
+                    </div>
+                </div>
+                
+                <!-- Soporte Técnico -->
+                <div class="col-md-6">
+                    <div class="contacto-card">
+                        <h4><i class="fas fa-headset me-2"></i> Soporte Técnico</h4>
+                        <p><i class="fas fa-phone me-2"></i> +591 2 7654321</p>
+                        <p><i class="fas fa-envelope me-2"></i> soporte@almacenpolicial.bo</p>
+                        <p><i class="fas fa-clock me-2"></i> Lunes a Viernes 8:00 - 18:00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipo de Desarrollo -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="contacto-card">
+                        <h4><i class="fas fa-users me-2"></i> Equipo de Desarrollo</h4>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p><strong>Coordinador:</strong><br> Ing. Juan Pérez</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Analista:</strong><br> Lic. María González</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Desarrollador:</strong><br> Ing. Carlos López</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Redes Sociales -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="contacto-card">
+                        <h4><i class="fas fa-globe me-2"></i> Redes Sociales</h4>
+                        <p><i class="fab fa-facebook me-2"></i> facebook.com/almacenpolicial</p>
+                        <p><i class="fab fa-twitter me-2"></i> @almacenpolicial</p>
+                        <p><i class="fab fa-linkedin me-2"></i> linkedin.com/company/almacenpolicial</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+
+    <!-- FOOTER -->
+<footer class="bg-dark text-light py-4">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-12">
+                <h5>Sistema de Control de Almacén Policial</h5>
+                <p>Unidad de Administración Policial de La Paz</p>
+                <p>Departamento de Sistemas y Tecnología</p>
+                <p class="footer-copy">© 2025 - Proyecto de Desarrollo de Sistemas</p>
+            </div>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="row">
+            <!-- Información de contacto -->
+            <div class="col-md-4 mb-3">
+                <h6><i class="fas fa-phone me-2"></i> Contacto</h6>
+                <p>Tel: +591 2 7654321</p>
+                <p>Email: soporte@almacenpolicial.bo</p>
+            </div>
+
+            <!-- Horarios de atención -->
+            <div class="col-md-4 mb-3">
+                <h6><i class="fas fa-clock me-2"></i> Horarios</h6>
+                <p>Lunes a Viernes: 08:00 - 18:00</p>
+                <p>Sábados: 09:00 - 13:00</p>
+            </div>
+
+            <!-- Información adicional -->
+            <div class="col-md-4 mb-3">
+                <h6><i class="fas fa-info-circle me-2"></i> Información Importante</h6>
+                <p>Este sistema garantiza la transparencia en la gestión de inventarios policiales.</p>
+                <p>Todos los movimientos de materiales quedan registrados y auditados.</p>
+                <p>Acceso restringido únicamente a personal autorizado.</p>
+            </div>
+        </div>
+
+        <hr class="my-3">
+
+        <!-- Redes sociales ficticias -->
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    <i class="fab fa-facebook me-2"></i> facebook.com/almacenpolicial |
+                    <i class="fab fa-twitter me-2"></i> @almacenpolicial |
+                    <i class="fab fa-linkedin me-2"></i> linkedin.com/company/almacenpolicial
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- SCRIPTS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
